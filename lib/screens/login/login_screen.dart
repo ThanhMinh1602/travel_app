@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/components/button/app_button.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/gen/assets.gen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,13 +11,13 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-      children: [
-        Positioned.fill(
-          child: Image.asset(Assets.images.backgroundLogin.path,
-              fit: BoxFit.cover),
-        ),
-        Positioned.fill(
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(Assets.images.backgroundLogin.path,
+                fit: BoxFit.cover),
+          ),
+          Positioned.fill(
             top: 51.h,
             child: Column(
               children: [
@@ -46,15 +46,63 @@ class LoginScreen extends StatelessWidget {
                   )
                 ])),
                 SizedBox(height: 11.0.h),
-                Container(
-                  width: double.infinity,
-                  height: 593.h,
-                  decoration: BoxDecoration(
-                      color: AppColor.loginFormColor.withOpacity(0.75)),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 43.0.w, vertical: 50.0.h),
+                    decoration: BoxDecoration(
+                        color: AppColor.loginFormColor.withOpacity(0.75),
+                        borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(55.0.r))),
+                    child: Column(
+                      children: [
+                        const Row(
+                          children: [
+                            AppButton.outline(
+                              text: 'Sign Up',
+                            ),
+                            Spacer(),
+                            AppButton(
+                              text: 'Log In',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 40.0.h),
+                        Row(
+                          children: [
+                            const Expanded(
+                              child: Divider(
+                                endIndent: 16.0,
+                                indent: 16.0,
+                                color: AppColor.grey626262,
+                                thickness: 0.8,
+                              ),
+                            ),
+                            Text('OR',
+                                style: GoogleFonts.poppins(
+                                    color: AppColor.grey626262,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w300)),
+                            const Expanded(
+                              child: Divider(
+                                endIndent: 16.0,
+                                indent: 16.0,
+                                color: AppColor.grey626262,
+                                thickness: 0.8,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 47.0.h),
+                      ],
+                    ),
+                  ),
                 )
               ],
-            ))
-      ],
-    ));
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
