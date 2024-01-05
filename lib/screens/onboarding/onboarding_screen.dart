@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/gen/assets.gen.dart';
 import 'package:travel_app/models/onboarding_model.dart';
-import 'package:travel_app/screens/login/login_screen.dart';
+import 'package:travel_app/screens/auth/main_login_screen.dart';
 import 'package:travel_app/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:travel_app/screens/onboarding/widgets/onboarding_dot.dart';
 
@@ -102,7 +102,7 @@ class OnboardingScreen extends StatelessWidget {
         state.pageIndex == 2
             ? Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const LoginScreen(),
+                  builder: (context) => const MainLoginScreen(),
                 ),
               )
             : controller.nextPage(

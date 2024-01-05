@@ -12,9 +12,18 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/apple_ic.svg
+  String get appleIc => 'assets/icons/apple_ic.svg';
+
   /// File path: assets/icons/done_icon.png
   AssetGenImage get doneIcon =>
       const AssetGenImage('assets/icons/done_icon.png');
+
+  /// File path: assets/icons/fb_ic.svg
+  String get fbIc => 'assets/icons/fb_ic.svg';
+
+  /// File path: assets/icons/gg_ic.svg
+  String get ggIc => 'assets/icons/gg_ic.svg';
 
   /// File path: assets/icons/logApp.png
   AssetGenImage get logApp => const AssetGenImage('assets/icons/logApp.png');
@@ -24,7 +33,7 @@ class $AssetsIconsGen {
       const AssetGenImage('assets/icons/next_icon.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [doneIcon, logApp, nextIcon];
+  List<dynamic> get values => [appleIc, doneIcon, fbIc, ggIc, logApp, nextIcon];
 }
 
 class $AssetsImagesGen {
@@ -33,6 +42,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/background_login.png
   AssetGenImage get backgroundLogin =>
       const AssetGenImage('assets/images/background_login.png');
+
+  /// File path: assets/images/login_sigup.png
+  AssetGenImage get loginSigup =>
+      const AssetGenImage('assets/images/login_sigup.png');
 
   /// File path: assets/images/onboarding1.png
   AssetGenImage get onboarding1 =>
@@ -48,7 +61,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [backgroundLogin, onboarding1, onboarding2, onboarding3];
+      [backgroundLogin, loginSigup, onboarding1, onboarding2, onboarding3];
 }
 
 class Assets {

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/components/button/app_button.dart';
+import 'package:travel_app/components/button/other_button_login.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/gen/assets.gen.dart';
+import 'package:travel_app/screens/auth/sigup_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class MainLoginScreen extends StatelessWidget {
+  const MainLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  'assets/icons/logApp.png',
+                  Assets.icons.logApp.path,
                   width: 172.w,
                 ),
                 SizedBox(height: 15.h),
@@ -56,13 +58,19 @@ class LoginScreen extends StatelessWidget {
                             top: Radius.circular(55.0.r))),
                     child: Column(
                       children: [
-                        const Row(
+                        Row(
                           children: [
                             AppButton.outline(
                               text: 'Sign Up',
+                              onTap: () {
+                                print('object');
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const SigupScreen(),
+                                ));
+                              },
                             ),
-                            Spacer(),
-                            AppButton(
+                            const Spacer(),
+                            const AppButton(
                               text: 'Log In',
                             ),
                           ],
@@ -94,6 +102,23 @@ class LoginScreen extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height: 47.0.h),
+                        OtherButtonLogin(
+                          icon: Assets.icons.ggIc,
+                          text: 'Continue with Google',
+                          onTap: () {},
+                        ),
+                        SizedBox(height: 32.0.h),
+                        OtherButtonLogin(
+                          icon: Assets.icons.fbIc,
+                          text: 'Continue with Facebook',
+                          onTap: () {},
+                        ),
+                        SizedBox(height: 32.0.h),
+                        OtherButtonLogin(
+                          icon: Assets.icons.appleIc,
+                          text: 'Continue with Apple',
+                          onTap: () {},
+                        ),
                       ],
                     ),
                   ),
