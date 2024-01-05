@@ -9,11 +9,13 @@ class FormInput extends StatelessWidget {
       required this.text1,
       this.text2,
       this.controller,
-      this.validator});
+      this.validator,
+      this.obscureText = false});
   final String text1;
   final String? text2;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final bool obscureText;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -31,6 +33,7 @@ class FormInput extends StatelessWidget {
         // Text('Email', style: AppStyle.regular14),
         SizedBox(height: 9.0.h),
         TextFormField(
+          obscureText: obscureText,
           validator: validator,
           controller: controller,
           decoration: InputDecoration(

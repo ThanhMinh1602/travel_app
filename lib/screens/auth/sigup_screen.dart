@@ -21,8 +21,8 @@ class SigupScreen extends StatelessWidget {
         child: Stack(
           children: [
             Positioned.fill(
-              child:
-                  Image.asset(Assets.images.loginSigup.path, fit: BoxFit.cover),
+              child: Image.asset(Assets.images.backgroundLogin.path,
+                  fit: BoxFit.cover),
             ),
             Positioned.fill(
               top: 86.0.h,
@@ -31,94 +31,111 @@ class SigupScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        Assets.icons.logApp.path,
-                        width: 78.w,
+                      Hero(
+                        tag: 'logo',
+                        child: Image.asset(
+                          Assets.icons.logApp.path,
+                          width: 78.w,
+                        ),
                       ),
                       SizedBox(width: 10.w),
-                      RichText(
-                          text: TextSpan(children: [
-                        TextSpan(
-                          text: 'Trave',
-                          style: GoogleFonts.poppins(
-                            color: AppColor.white,
-                            fontSize: 50.sp,
-                            fontWeight: FontWeight.w400,
+                      Hero(
+                        tag: 'title',
+                        child: RichText(
+                            text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Trave',
+                            style: GoogleFonts.poppins(
+                              color: AppColor.white,
+                              fontSize: 50.sp,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
-                        ),
-                        TextSpan(
-                          text: 'ally',
-                          style: GoogleFonts.poppins(
-                            color: AppColor.primaryColor,
-                            fontSize: 50.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        )
-                      ])),
+                          TextSpan(
+                            text: 'ally',
+                            style: GoogleFonts.poppins(
+                              color: AppColor.primaryColor,
+                              fontSize: 50.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          )
+                        ])),
+                      ),
                     ],
                   ),
                   SizedBox(height: 66.0.h),
                   Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 71.0.w,
-                      ).copyWith(
-                        top: 28.0,
-                      ),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: AppColor.loginFormColor.withOpacity(0.75),
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(55.0.r))),
-                      child: ListView(
-                        shrinkWrap: true,
-                        children: [
-                          Text(
-                            'Welcome',
-                            style: AppStyle.titleLogin,
-                            textAlign: TextAlign.center,
+                    child: Hero(
+                      tag: 'form',
+                      child: Material(
+                        color: Colors.transparent,
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 71.0.w,
+                          ).copyWith(
+                            top: 28.0,
                           ),
-                          SizedBox(height: 24.0.h),
-                          const FormInput(
-                            text1: 'Email',
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: AppColor.loginFormColor.withOpacity(0.75),
+                              borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(55.0.r))),
+                          child: ListView(
+                            shrinkWrap: true,
+                            children: [
+                              Text(
+                                'Welcome',
+                                style: AppStyle.titleLogin,
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(height: 24.0.h),
+                              const FormInput(
+                                text1: 'Email',
+                              ),
+                              SizedBox(height: 25.0.h),
+                              const FormInput(
+                                text1: 'Password',
+                                obscureText: true,
+                              ),
+                              SizedBox(height: 25.0.h),
+                              const FormInput(
+                                text1: 'Confirm Password',
+                                obscureText: true,
+                              ),
+                              SizedBox(height: 55.0.h),
+                              Center(
+                                child: AppButton(
+                                  text: 'Sign Up',
+                                  onTap: () {},
+                                ),
+                              ),
+                              SizedBox(height: 30.0.h),
+                              RichText(
+                                textAlign: TextAlign.center,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: 'Already have an account? ',
+                                        style: AppStyle.regular14),
+                                    TextSpan(
+                                      text: 'Login',
+                                      style: AppStyle.regular14.copyWith(
+                                          color: AppColor.primaryColor,
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w800),
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () => Navigator.of(context)
+                                                .push(MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const LoginScreen(),
+                                            )),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 25.0.h),
-                          const FormInput(
-                            text1: 'Password',
-                          ),
-                          SizedBox(height: 25.0.h),
-                          const FormInput(
-                            text1: 'Confirm Password',
-                          ),
-                          SizedBox(height: 55.0.h),
-                          Center(
-                            child: AppButton(
-                              text: 'Sign Up',
-                              onTap: () {},
-                            ),
-                          ),
-                          SizedBox(height: 30.0.h),
-                          RichText(
-                              textAlign: TextAlign.center,
-                              text: TextSpan(children: [
-                                TextSpan(
-                                    text: 'Already have an account? ',
-                                    style: AppStyle.regular14),
-                                TextSpan(
-                                  text: 'Sign In',
-                                  style: AppStyle.regular14.copyWith(
-                                      color: AppColor.primaryColor,
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w800),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () => Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) =>
-                                              const LoginScreen(),
-                                        )),
-                                )
-                              ])),
-                        ],
+                        ),
                       ),
                     ),
                   )
