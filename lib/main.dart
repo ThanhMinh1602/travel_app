@@ -1,10 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:travel_app/firebase_options.dart';
+import 'package:travel_app/screens/auth/bloc/auth_bloc.dart';
 import 'package:travel_app/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:travel_app/screens/onboarding/onboarding_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -13,8 +20,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => OnboardingBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => OnboardingBloc()),
+        BlocProvider(create: (context) => AuthBloc())
+      ],
       child: ScreenUtilInit(
         designSize: const Size(428, 926),
         child: MaterialApp(

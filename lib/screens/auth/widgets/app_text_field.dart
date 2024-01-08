@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/constants/app_style.dart';
 
-class FormInput extends StatelessWidget {
-  const FormInput(
+class AppTextField extends StatelessWidget {
+  const AppTextField(
       {super.key,
       required this.text1,
       this.text2,
@@ -33,6 +33,7 @@ class FormInput extends StatelessWidget {
         // Text('Email', style: AppStyle.regular14),
         SizedBox(height: 9.0.h),
         TextFormField(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           obscureText: obscureText,
           validator: validator,
           controller: controller,

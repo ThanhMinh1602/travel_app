@@ -5,8 +5,7 @@ import 'package:travel_app/components/button/app_button.dart';
 import 'package:travel_app/components/button/other_button_login.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/gen/assets.gen.dart';
-import 'package:travel_app/screens/auth/login_screen.dart';
-import 'package:travel_app/screens/auth/sigup_screen.dart';
+import 'package:travel_app/screens/auth/auth_screen.dart';
 
 class MainLoginScreen extends StatelessWidget {
   const MainLoginScreen({super.key});
@@ -85,7 +84,9 @@ class MainLoginScreen extends StatelessWidget {
                                             Animation<double> animation,
                                             Animation<double>
                                                 secondaryAnimation) {
-                                          return const SigupScreen();
+                                          return const AuthScreen(
+                                            isLogin: false,
+                                          );
                                         },
                                       ),
                                     );
@@ -103,7 +104,9 @@ class MainLoginScreen extends StatelessWidget {
                                               Animation<double> animation,
                                               Animation<double>
                                                   secondaryAnimation) {
-                                            return const LoginScreen();
+                                            return const AuthScreen(
+                                              isLogin: true,
+                                            );
                                           },
                                         ),
                                       );
