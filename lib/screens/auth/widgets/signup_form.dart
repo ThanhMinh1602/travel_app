@@ -49,9 +49,17 @@ class _SignupFormState extends State<SignupForm> {
       }
     }
 
+    void goToLogin() {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const AuthScreen(isLogin: true),
+        ),
+      );
+    }
+
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is SignupFailureState) {
+        if (state is AuthFailureState) {
           AppDialog.dialog(context,
               title: 'Signup Failure!',
               content: 'Email already exists',
@@ -60,17 +68,13 @@ class _SignupFormState extends State<SignupForm> {
                     onPressed: () => Navigator.of(context).pop(),
                     child: const Text('OK'))
               ]);
-        } else if (state is SignupSuccess) {
+        } else if (state is AuthSuccessState) {
           AppDialog.dialog(context,
               title: 'Signup Success!',
               content: 'Please login to continue',
               actions: [
                 TextButton(
-                  onPressed: () => Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const AuthScreen(isLogin: true),
-                    ),
-                  ),
+                  onPressed: goToLogin,
                   child: const Text('OK'),
                 ),
               ]);
@@ -166,7 +170,7 @@ class _SignupFormState extends State<SignupForm> {
                           Center(
                             child: AppButton(
                                 isLoading:
-                                    state is SingupLoading ? true : false,
+                                    state is AuthLoadingState ? true : false,
                                 text: 'Sign Up',
                                 onTap: onTapSignup),
                           ),
@@ -179,20 +183,13 @@ class _SignupFormState extends State<SignupForm> {
                                     text: 'Already have an account? ',
                                     style: AppStyle.regular14),
                                 TextSpan(
-                                  text: 'Login',
-                                  style: AppStyle.regular14.copyWith(
-                                      color: AppColor.primaryColor,
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w800),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () =>
-                                        Navigator.of(context).pushReplacement(
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                const AuthScreen(isLogin: true),
-                                          ),
-                                        ),
-                                )
+                                    text: 'Login',
+                                    style: AppStyle.regular14.copyWith(
+                                        color: AppColor.primaryColor,
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.w800),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = goToLogin)
                               ],
                             ),
                           ),

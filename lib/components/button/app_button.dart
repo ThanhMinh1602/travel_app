@@ -35,6 +35,7 @@ class AppButton extends StatelessWidget {
       surfaceTintColor: Colors.transparent,
       color: Colors.transparent,
       child: InkWell(
+        enableFeedback: isLoading == true ? false : true,
         onTap: onTap,
         borderRadius: BorderRadius.circular(14.0.r),
         splashColor: AppColor.loginFormColor.withOpacity(0.5),
@@ -49,12 +50,12 @@ class AppButton extends StatelessWidget {
           child: Center(
             child: isLoading == true
                 ? SizedBox(
-                  width: 30.0.w,
-                  height: 30.0.h,
-                  child: const CircularProgressIndicator(
+                    width: 30.0.w,
+                    height: 30.0.h,
+                    child: const CircularProgressIndicator(
                       color: AppColor.white,
                     ),
-                )
+                  )
                 : Text(
                     text,
                     style: GoogleFonts.poppins(

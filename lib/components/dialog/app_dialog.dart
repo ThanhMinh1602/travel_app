@@ -11,9 +11,18 @@ class AppDialog {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-          title: Text(title ?? ''),
-          content: Text(content ?? ''),
-          actions: actions),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        title: Text(title ?? ''),
+        contentTextStyle: const TextStyle(
+          color: Colors.black,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
+        content: Text(content ?? ''),
+        actions: actions,
+      ),
     );
   }
 }

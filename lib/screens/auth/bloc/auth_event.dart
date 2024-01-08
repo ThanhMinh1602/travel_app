@@ -22,6 +22,23 @@ class SigupFailureEvent extends AuthEvent {
 
   const SigupFailureEvent({required this.errorMessage});
   @override
-  // TODO: implement props
+  List<Object> get props => [errorMessage];
+}
+
+class LoginEvent extends AuthEvent {
+  final String email;
+  final String password;
+
+  const LoginEvent({required this.email, required this.password});
+
+  @override
+  List<Object> get props => [email, password];
+}
+
+class LoginFailureEvent extends AuthEvent {
+  final String errorMessage;
+
+  const LoginFailureEvent({required this.errorMessage});
+  @override
   List<Object> get props => [errorMessage];
 }
