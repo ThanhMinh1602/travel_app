@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:travel_app/gen/assets.gen.dart';
 
 class OtherButtonLogin extends StatelessWidget {
   const OtherButtonLogin({

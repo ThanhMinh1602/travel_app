@@ -73,7 +73,7 @@ class MainLoginScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                AppButton.outline(
+                                AppButton.outline( 
                                   text: 'Sign Up',
                                   onTap: () {
                                     Navigator.of(context).push(
@@ -85,8 +85,7 @@ class MainLoginScreen extends StatelessWidget {
                                             Animation<double>
                                                 secondaryAnimation) {
                                           return const AuthScreen(
-                                            isLogin: false,
-                                          );
+                                              isLogin: false);
                                         },
                                       ),
                                     );

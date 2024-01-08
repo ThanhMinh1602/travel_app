@@ -11,6 +11,7 @@ class AppButton extends StatelessWidget {
     this.textColor = AppColor.white,
     required this.text,
     this.onTap,
+    this.isLoading = false,
   });
   const AppButton.outline({
     super.key,
@@ -19,12 +20,14 @@ class AppButton extends StatelessWidget {
     this.textColor = AppColor.primaryColor,
     required this.text,
     this.onTap,
+    this.isLoading = false,
   });
   final Color? color;
   final Color borderColor;
   final Color textColor;
   final String text;
   final void Function()? onTap;
+  final bool? isLoading;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -44,13 +47,21 @@ class AppButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(14.0),
           ),
           child: Center(
-            child: Text(
-              text,
-              style: GoogleFonts.poppins(
-                  color: textColor,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w500),
-            ),
+            child: isLoading == true
+                ? SizedBox(
+                  width: 30.0.w,
+                  height: 30.0.h,
+                  child: const CircularProgressIndicator(
+                      color: AppColor.white,
+                    ),
+                )
+                : Text(
+                    text,
+                    style: GoogleFonts.poppins(
+                        color: textColor,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500),
+                  ),
           ),
         ),
       ),
