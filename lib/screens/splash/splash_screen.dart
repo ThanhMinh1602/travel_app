@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/gen/assets.gen.dart';
-import 'package:travel_app/screens/auth/update_inf_user_screen.dart';
+import 'package:travel_app/screens/auth/enters_information_screen.dart';
 import 'package:travel_app/screens/onboarding/onboarding_screen.dart';
 import 'package:travel_app/screens/splash/bloc/splash_bloc.dart';
 
@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
         }
         if (state is Logged) {
           Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const UpdateInfUser()),
+            MaterialPageRoute(builder: (context) => const EntersInformation()),
             (route) => false,
           );
         }

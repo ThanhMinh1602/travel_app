@@ -21,6 +21,7 @@ class AuthSignInFailureState extends AuthState {
   List<Object> get props => [errorMessage];
 }
 
+
 class AuthSignUpInitialState extends AuthState {}
 
 class AuthSignUpSuccessState extends AuthState {}
@@ -34,3 +35,6 @@ class AuthSignUpFailureState extends AuthState {
   @override
   List<Object> get props => [errorMessage];
 }
+
+
+
