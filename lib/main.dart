@@ -6,10 +6,13 @@ import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/firebase_options.dart';
 import 'package:travel_app/screens/auth/bloc/auth_bloc.dart';
 import 'package:travel_app/screens/onboarding/bloc/onboarding_bloc.dart';
-import 'package:travel_app/screens/onboarding/onboarding_screen.dart';
+import 'package:travel_app/screens/splash/bloc/splash_bloc.dart';
+import 'package:travel_app/screens/splash/splash_screen.dart';
+import 'package:travel_app/service/local/share_pref.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SharedPrefs.initialise();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -24,7 +27,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => OnboardingBloc()),
-        BlocProvider(create: (context) => AuthBloc())
+        BlocProvider(create: (context) => AuthBloc()),
+        BlocProvider(create: (context) => SplashBloc())
       ],
       child: ScreenUtilInit(
         designSize: const Size(428, 926),
@@ -33,7 +37,7 @@ class MyApp extends StatelessWidget {
             primaryColor: AppColor.primaryColor,
           ),
           debugShowCheckedModeBanner: false,
-          home: OnboardingScreen(),
+          home: const SplashScreen(),
         ),
       ),
     );

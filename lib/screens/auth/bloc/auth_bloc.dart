@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:travel_app/service/local/share_pref.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -29,11 +30,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } else if (event is LoginEvent) {
       emit(AuthSignInLoadingState());
       try {
-        await _auth.signInWithEmailAndPassword(
+        final userCredential = await _auth.signInWithEmailAndPassword(
           email: event.email,
           password: event.password,
         );
-        emit(AuthSignInSuccessState());
+        final token = userCredential.user!.uid;
+        if (token.isNotEmpty) {
+          SharedPrefs.token = token;
+          emit(AuthSignInSuccessState());
+        }
       } catch (e) {
         emit(AuthSignInFailureState(errorMessage: e.toString()));
       }

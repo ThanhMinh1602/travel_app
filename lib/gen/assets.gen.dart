@@ -15,6 +15,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/apple_ic.svg
   String get appleIc => 'assets/icons/apple_ic.svg';
 
+  /// File path: assets/icons/book_ic_svg.svg
+  String get bookIcSvg => 'assets/icons/book_ic_svg.svg';
+
   /// File path: assets/icons/done_icon.png
   AssetGenImage get doneIcon =>
       const AssetGenImage('assets/icons/done_icon.png');
@@ -22,8 +25,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/fb_ic.svg
   String get fbIc => 'assets/icons/fb_ic.svg';
 
+  /// File path: assets/icons/gender_ic_svg.svg
+  String get genderIcSvg => 'assets/icons/gender_ic_svg.svg';
+
   /// File path: assets/icons/gg_ic.svg
   String get ggIc => 'assets/icons/gg_ic.svg';
+
+  /// File path: assets/icons/heart_svg.svg
+  String get heartSvg => 'assets/icons/heart_svg.svg';
+
+  /// File path: assets/icons/ion_language_svg.svg
+  String get ionLanguageSvg => 'assets/icons/ion_language_svg.svg';
 
   /// File path: assets/icons/logApp.png
   AssetGenImage get logApp => const AssetGenImage('assets/icons/logApp.png');
@@ -36,8 +48,19 @@ class $AssetsIconsGen {
       const AssetGenImage('assets/icons/next_icon.png');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [appleIc, doneIcon, fbIc, ggIc, logApp, logoSvg, nextIcon];
+  List<dynamic> get values => [
+        appleIc,
+        bookIcSvg,
+        doneIcon,
+        fbIc,
+        genderIcSvg,
+        ggIc,
+        heartSvg,
+        ionLanguageSvg,
+        logApp,
+        logoSvg,
+        nextIcon
+      ];
 }
 
 class $AssetsImagesGen {

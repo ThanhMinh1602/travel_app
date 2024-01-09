@@ -42,6 +42,7 @@ class OtherButtonLogin extends StatelessWidget {
               SvgPicture.asset(
                 icon,
                 width: 24.0.w,
+                // ignore: deprecated_member_use
                 color: textColor,
               ),
               SizedBox(width: 17.0.w),

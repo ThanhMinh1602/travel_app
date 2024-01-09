@@ -25,6 +25,7 @@ class TvAppBar extends StatelessWidget implements PreferredSizeWidget {
                   tag: 'logo',
                   child: SvgPicture.asset(
                     Assets.icons.logoSvg,
+                    // ignore: deprecated_member_use
                     color: AppColor.black,
                     width: 33.0.w,
                   ),

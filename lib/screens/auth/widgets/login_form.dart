@@ -70,6 +70,7 @@ class _LoginFormState extends State<LoginForm> {
                   tag: 'logo',
                   child: SvgPicture.asset(
                     Assets.icons.logoSvg,
+                    // ignore: deprecated_member_use
                     color: AppColor.white,
                     width: 78.w,
                   ),
