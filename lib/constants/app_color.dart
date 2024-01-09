@@ -7,4 +7,5 @@ class AppColor {
   static const Color primaryColor = Color(0xff4AA9BC);
   static const Color loginFormColor = Color(0xff7C7C7C);
   static const Color grey626262 = Color(0xff626262);
+  static const Color blueBDBDBD = Color(0xffE2F8FB);
 }

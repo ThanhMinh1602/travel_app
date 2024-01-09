@@ -27,4 +27,14 @@ class AppStyle {
     fontSize: 20.sp,
     fontWeight: FontWeight.w300,
   );
+  static TextStyle light14 = GoogleFonts.poppins(
+    color: AppColor.black,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w300,
+  );
+  static TextStyle medium20 = GoogleFonts.poppins(
+    color: AppColor.white,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w500,
+  );
 }

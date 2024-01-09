@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/book_ic_svg.svg
   String get bookIcSvg => 'assets/icons/book_ic_svg.svg';
 
+  /// File path: assets/icons/checked_ic_svg.svg
+  String get checkedIcSvg => 'assets/icons/checked_ic_svg.svg';
+
   /// File path: assets/icons/done_icon.png
   AssetGenImage get doneIcon =>
       const AssetGenImage('assets/icons/done_icon.png');
@@ -34,6 +37,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/heart_svg.svg
   String get heartSvg => 'assets/icons/heart_svg.svg';
 
+  /// File path: assets/icons/ic_next.svg
+  String get icNext => 'assets/icons/ic_next.svg';
+
   /// File path: assets/icons/ion_language_svg.svg
   String get ionLanguageSvg => 'assets/icons/ion_language_svg.svg';
 
@@ -47,19 +53,25 @@ class $AssetsIconsGen {
   AssetGenImage get nextIcon =>
       const AssetGenImage('assets/icons/next_icon.png');
 
+  /// File path: assets/icons/uncheckd_ic_svg.svg
+  String get uncheckdIcSvg => 'assets/icons/uncheckd_ic_svg.svg';
+
   /// List of all assets
   List<dynamic> get values => [
         appleIc,
         bookIcSvg,
+        checkedIcSvg,
         doneIcon,
         fbIc,
         genderIcSvg,
         ggIc,
         heartSvg,
+        icNext,
         ionLanguageSvg,
         logApp,
         logoSvg,
-        nextIcon
+        nextIcon,
+        uncheckdIcSvg
       ];
 }
 
