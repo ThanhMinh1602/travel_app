@@ -8,29 +8,34 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  AuthBloc() : super(AuthInitialState()) {
+  AuthBloc() : super(AuthSignInInitialState()) {
     on<AuthEvent>(authLogin);
   }
 
   Future<void> authLogin(event, emit) async {
+    //signup with email and password
     if (event is SignupEvent) {
-      emit(AuthLoadingState());
+      emit(AuthSignUpLoadingState());
       try {
         await _auth.createUserWithEmailAndPassword(
-            email: event.email, password: event.password);
-        emit(AuthSuccessState());
+          email: event.email,
+          password: event.password,
+        );
+        emit(AuthSignUpSuccessState());
       } catch (e) {
-        emit(AuthFailureState(errorMessage: e.toString()));
+        emit(AuthSignUpFailureState(errorMessage: e.toString()));
       }
-      if (event is LoginEvent) {
-        emit(AuthLoadingState());
-        try {
-          await _auth.signInWithEmailAndPassword(
-              email: event.email, password: event.password);
-          emit(AuthSuccessState());
-        } catch (e) {
-          emit(AuthFailureState(errorMessage: e.toString()));
-        }
+      //login with email and password
+    } else if (event is LoginEvent) {
+      emit(AuthSignInLoadingState());
+      try {
+        await _auth.signInWithEmailAndPassword(
+          email: event.email,
+          password: event.password,
+        );
+        emit(AuthSignInSuccessState());
+      } catch (e) {
+        emit(AuthSignInFailureState(errorMessage: e.toString()));
       }
     }
   }

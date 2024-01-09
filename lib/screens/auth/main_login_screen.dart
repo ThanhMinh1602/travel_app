@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/components/button/app_button.dart';
 import 'package:travel_app/components/button/other_button_login.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/gen/assets.gen.dart';
 import 'package:travel_app/screens/auth/auth_screen.dart';
-
 class MainLoginScreen extends StatelessWidget {
   const MainLoginScreen({super.key});
 
@@ -25,10 +25,11 @@ class MainLoginScreen extends StatelessWidget {
               children: [
                 Hero(
                   tag: 'logo',
-                  child: Image.asset(
-                    Assets.icons.logApp.path,
-                    width: 172.w,
-                  ),
+                  child: SvgPicture.asset(
+                      Assets.icons.logoSvg,
+                      color: AppColor.white,
+                      width: 172.w,
+                    ),
                 ),
                 SizedBox(height: 15.h),
                 Hero(
@@ -73,7 +74,7 @@ class MainLoginScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                AppButton.outline( 
+                                AppButton.outline(
                                   text: 'Sign Up',
                                   onTap: () {
                                     Navigator.of(context).push(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/screens/auth/widgets/tv_appbar.dart';
 
 class UpdateInfUser extends StatefulWidget {
   const UpdateInfUser({super.key});
@@ -10,6 +11,15 @@ class UpdateInfUser extends StatefulWidget {
 class _UpdateInfUserState extends State<UpdateInfUser> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: const TvAppBar(),
+      body: Column(
+        children: [       
+          PageView(
+            children: [],
+          ),
+        ],
+      ),
+    );
   }
 }

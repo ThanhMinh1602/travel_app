@@ -107,7 +107,7 @@ class OnboardingScreen extends StatelessWidget {
               )
             : controller.nextPage(
                 duration: const Duration(milliseconds: 300),
-                curve: Curves.easeIn,
+                curve: Curves.linear,
               );
       },
       child: Container(

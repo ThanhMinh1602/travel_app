@@ -42,3 +42,9 @@ class LoginFailureEvent extends AuthEvent {
   @override
   List<Object> get props => [errorMessage];
 }
+
+class LoginGoogleEvent extends AuthEvent {}
+
+class SignUpGoogleEvent extends AuthEvent {}
+
+class LogoutEvent extends AuthEvent {}

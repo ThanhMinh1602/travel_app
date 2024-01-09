@@ -4,17 +4,22 @@ import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/constants/app_style.dart';
 
 class AppTextField extends StatelessWidget {
-  const AppTextField(
-      {super.key,
-      required this.text1,
-      this.text2,
-      this.controller,
-      this.validator,
-      this.obscureText = false});
+  const AppTextField({
+    super.key,
+    required this.text1,
+    this.text2,
+    this.controller,
+    this.validator,
+    this.obscureText = false,
+    this.keyboardType = TextInputType.text,
+    this.textInputAction = TextInputAction.next,
+  });
   final String text1;
   final String? text2;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
   final bool obscureText;
   @override
   Widget build(BuildContext context) {
@@ -34,6 +39,8 @@ class AppTextField extends StatelessWidget {
         SizedBox(height: 9.0.h),
         TextFormField(
           autovalidateMode: AutovalidateMode.onUserInteraction,
+          keyboardType: keyboardType,
+          textInputAction: textInputAction,
           obscureText: obscureText,
           validator: validator,
           controller: controller,

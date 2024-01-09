@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/components/button/app_button.dart';
 import 'package:travel_app/components/dialog/app_dialog.dart';
@@ -10,7 +11,7 @@ import 'package:travel_app/constants/app_style.dart';
 import 'package:travel_app/gen/assets.gen.dart';
 import 'package:travel_app/screens/auth/auth_screen.dart';
 import 'package:travel_app/screens/auth/bloc/auth_bloc.dart';
-import 'package:travel_app/screens/auth/widgets/app_text_field.dart';
+import 'package:travel_app/components/text_field/app_text_field.dart';
 import 'package:travel_app/utils/validator.dart';
 
 class SignupForm extends StatefulWidget {
@@ -32,6 +33,7 @@ class _SignupFormState extends State<SignupForm> {
     emailController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
+    formKey.currentState?.dispose();
     super.dispose();
   }
 
@@ -59,7 +61,7 @@ class _SignupFormState extends State<SignupForm> {
 
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is AuthFailureState) {
+        if (state is AuthSignUpFailureState) {
           AppDialog.dialog(context,
               title: 'Signup Failure!',
               content: 'Email already exists',
@@ -68,7 +70,7 @@ class _SignupFormState extends State<SignupForm> {
                     onPressed: () => Navigator.of(context).pop(),
                     child: const Text('OK'))
               ]);
-        } else if (state is AuthSuccessState) {
+        } else if (state is AuthSignUpSuccessState) {
           AppDialog.dialog(context,
               title: 'Signup Success!',
               content: 'Please login to continue',
@@ -88,8 +90,9 @@ class _SignupFormState extends State<SignupForm> {
               children: [
                 Hero(
                   tag: 'logo',
-                  child: Image.asset(
-                    Assets.icons.logApp.path,
+                  child: SvgPicture.asset(
+                    Assets.icons.logoSvg,
+                    color: AppColor.white,
                     width: 78.w,
                   ),
                 ),
@@ -147,6 +150,7 @@ class _SignupFormState extends State<SignupForm> {
                           ),
                           SizedBox(height: 24.0.h),
                           AppTextField(
+                              keyboardType: TextInputType.emailAddress,
                               controller: emailController,
                               text1: 'Email',
                               validator: (value) =>
@@ -161,6 +165,7 @@ class _SignupFormState extends State<SignupForm> {
                           SizedBox(height: 25.0.h),
                           AppTextField(
                             controller: confirmPasswordController,
+                            textInputAction: TextInputAction.done,
                             text1: 'Confirm Password',
                             obscureText: true,
                             validator: (value) => Validator.confirmPassword(
@@ -169,8 +174,9 @@ class _SignupFormState extends State<SignupForm> {
                           SizedBox(height: 55.0.h),
                           Center(
                             child: AppButton(
-                                isLoading:
-                                    state is AuthLoadingState ? true : false,
+                                isLoading: state is AuthSignUpLoadingState
+                                    ? true
+                                    : false,
                                 text: 'Sign Up',
                                 onTap: onTapSignup),
                           ),

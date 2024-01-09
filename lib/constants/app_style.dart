@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/constants/app_color.dart';
 
 class AppStyle {
   AppStyle._();
@@ -20,5 +21,10 @@ class AppStyle {
     color: Colors.white,
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
+  );
+  static TextStyle light20 = GoogleFonts.poppins(
+    color: AppColor.black,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w300,
   );
 }

@@ -28,12 +28,16 @@ class $AssetsIconsGen {
   /// File path: assets/icons/logApp.png
   AssetGenImage get logApp => const AssetGenImage('assets/icons/logApp.png');
 
+  /// File path: assets/icons/logoSvg.svg
+  String get logoSvg => 'assets/icons/logoSvg.svg';
+
   /// File path: assets/icons/next_icon.png
   AssetGenImage get nextIcon =>
       const AssetGenImage('assets/icons/next_icon.png');
 
   /// List of all assets
-  List<dynamic> get values => [appleIc, doneIcon, fbIc, ggIc, logApp, nextIcon];
+  List<dynamic> get values =>
+      [appleIc, doneIcon, fbIc, ggIc, logApp, logoSvg, nextIcon];
 }
 
 class $AssetsImagesGen {
