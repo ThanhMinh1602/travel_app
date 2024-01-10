@@ -11,7 +11,7 @@ import 'package:travel_app/constants/app_style.dart';
 import 'package:travel_app/gen/assets.gen.dart';
 import 'package:travel_app/screens/auth/auth_screen.dart';
 import 'package:travel_app/screens/auth/bloc/auth_bloc.dart';
-import 'package:travel_app/screens/auth/enters_information_screen.dart';
+import 'package:travel_app/screens/user_infomation.dart/enters_information_screen.dart';
 import 'package:travel_app/components/text_field/app_text_field.dart';
 import 'package:travel_app/utils/validator.dart';
 

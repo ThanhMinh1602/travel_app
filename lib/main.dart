@@ -8,6 +8,7 @@ import 'package:travel_app/screens/auth/bloc/auth_bloc.dart';
 import 'package:travel_app/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:travel_app/screens/splash/bloc/splash_bloc.dart';
 import 'package:travel_app/screens/splash/splash_screen.dart';
+import 'package:travel_app/screens/user_infomation.dart/bloc/user_infomation_bloc.dart';
 import 'package:travel_app/service/local/share_pref.dart';
 
 void main() async {
@@ -28,13 +29,15 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => OnboardingBloc()),
         BlocProvider(create: (context) => AuthBloc()),
-        BlocProvider(create: (context) => SplashBloc())
+        BlocProvider(create: (context) => SplashBloc()),
+        BlocProvider(create: (context) => UserInfomationBloc())
       ],
       child: ScreenUtilInit(
         designSize: const Size(428, 926),
         child: MaterialApp(
           theme: ThemeData(
             primaryColor: AppColor.primaryColor,
+            focusColor: AppColor.primaryColor,
           ),
           debugShowCheckedModeBanner: false,
           home: const SplashScreen(),

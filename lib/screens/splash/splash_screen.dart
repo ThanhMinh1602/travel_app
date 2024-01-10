@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app/constants/app_color.dart';
 import 'package:travel_app/gen/assets.gen.dart';
-import 'package:travel_app/screens/auth/enters_information_screen.dart';
+import 'package:travel_app/screens/user_infomation.dart/enters_information_screen.dart';
 import 'package:travel_app/screens/onboarding/onboarding_screen.dart';
 import 'package:travel_app/screens/splash/bloc/splash_bloc.dart';
 
@@ -30,13 +30,28 @@ class SplashScreen extends StatelessWidget {
         }
       },
       child: Scaffold(
-        body: Center(
-          child: SvgPicture.asset(
-            Assets.icons.logoSvg,
-            // ignore: deprecated_member_use
-            color: AppColor.primaryColor,
-            width: 120.w,
-          ),
+        body: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.asset(
+                Assets.images.splashBgr.path,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Container(
+              color: AppColor.black.withOpacity(0.6),
+            ),
+            Positioned.fill(
+              child: Center(
+                child: SvgPicture.asset(
+                  Assets.icons.logoSvg,
+                  // ignore: deprecated_member_use
+                  color: const Color.fromARGB(255, 48, 188, 216),
+                  width: 120.w,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

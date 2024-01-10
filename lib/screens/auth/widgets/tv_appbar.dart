@@ -9,8 +9,9 @@ import 'package:travel_app/gen/assets.gen.dart';
 class TvAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TvAppBar({
     super.key,
+    this.title,
   });
-
+  final String? title;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,7 +60,7 @@ class TvAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           Padding(
             padding: EdgeInsets.only(left: 30.0.w),
-            child: Text('Choose a Language', style: AppStyle.light20),
+            child: Text(title ?? '', style: AppStyle.light20),
           ),
         ],
       ),

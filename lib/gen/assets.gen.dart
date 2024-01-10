@@ -18,8 +18,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/book_ic_svg.svg
   String get bookIcSvg => 'assets/icons/book_ic_svg.svg';
 
+  /// File path: assets/icons/calendar.svg
+  String get calendar => 'assets/icons/calendar.svg';
+
   /// File path: assets/icons/checked_ic_svg.svg
   String get checkedIcSvg => 'assets/icons/checked_ic_svg.svg';
+
+  /// File path: assets/icons/circle_cheked.svg
+  String get circleCheked => 'assets/icons/circle_cheked.svg';
+
+  /// File path: assets/icons/circle_unchecked.svg
+  String get circleUnchecked => 'assets/icons/circle_unchecked.svg';
 
   /// File path: assets/icons/done_icon.png
   AssetGenImage get doneIcon =>
@@ -27,6 +36,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/fb_ic.svg
   String get fbIc => 'assets/icons/fb_ic.svg';
+
+  /// File path: assets/icons/feather_upload.svg
+  String get featherUpload => 'assets/icons/feather_upload.svg';
 
   /// File path: assets/icons/gender_ic_svg.svg
   String get genderIcSvg => 'assets/icons/gender_ic_svg.svg';
@@ -43,6 +55,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ion_language_svg.svg
   String get ionLanguageSvg => 'assets/icons/ion_language_svg.svg';
 
+  /// File path: assets/icons/location.svg
+  String get location => 'assets/icons/location.svg';
+
   /// File path: assets/icons/logApp.png
   AssetGenImage get logApp => const AssetGenImage('assets/icons/logApp.png');
 
@@ -56,22 +71,31 @@ class $AssetsIconsGen {
   /// File path: assets/icons/uncheckd_ic_svg.svg
   String get uncheckdIcSvg => 'assets/icons/uncheckd_ic_svg.svg';
 
+  /// File path: assets/icons/user.svg
+  String get user => 'assets/icons/user.svg';
+
   /// List of all assets
   List<dynamic> get values => [
         appleIc,
         bookIcSvg,
+        calendar,
         checkedIcSvg,
+        circleCheked,
+        circleUnchecked,
         doneIcon,
         fbIc,
+        featherUpload,
         genderIcSvg,
         ggIc,
         heartSvg,
         icNext,
         ionLanguageSvg,
+        location,
         logApp,
         logoSvg,
         nextIcon,
-        uncheckdIcSvg
+        uncheckdIcSvg,
+        user
       ];
 }
 
@@ -98,9 +122,19 @@ class $AssetsImagesGen {
   AssetGenImage get onboarding3 =>
       const AssetGenImage('assets/images/onboarding3.png');
 
+  /// File path: assets/images/splashBgr.jpg
+  AssetGenImage get splashBgr =>
+      const AssetGenImage('assets/images/splashBgr.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [backgroundLogin, loginSigup, onboarding1, onboarding2, onboarding3];
+  List<AssetGenImage> get values => [
+        backgroundLogin,
+        loginSigup,
+        onboarding1,
+        onboarding2,
+        onboarding3,
+        splashBgr
+      ];
 }
 
 class Assets {

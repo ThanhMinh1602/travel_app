@@ -15,7 +15,7 @@ class AppButton extends StatelessWidget {
     required this.text,
     this.onTap,
     this.isLoading = false,
-    this.isRow,
+    this.isRow = false,
   });
   const AppButton.outline({
     super.key,

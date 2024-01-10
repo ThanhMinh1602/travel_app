@@ -17,14 +17,14 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     if (event is MoveToLoginScreen) {
       if (SharedPrefs.token != null) {
         await Future.delayed(
-          const Duration(seconds: 1),
+          const Duration(seconds: 2),
           () {
             emit(Logged());
           },
         );
       } else {
         await Future.delayed(
-          const Duration(seconds: 1),
+          const Duration(seconds: 2),
           () {
             emit(NotLogged());
           },
