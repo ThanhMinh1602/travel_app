@@ -1,35 +1,40 @@
 part of 'user_infomation_bloc.dart';
 
-abstract class UserInfomationState extends Equatable {
-  const UserInfomationState();
+abstract class UserInformationState extends Equatable {
+  const UserInformationState();
 
   @override
   List<Object> get props => [];
 }
 
-class UserInfomationInitial extends UserInfomationState {}
+class UserInfomationInitial extends UserInformationState {}
 
-class UserInfomationLoading extends UserInfomationState {}
+class UserInfomationLoading extends UserInformationState {}
 
-class UserInfomationSuccess extends UserInfomationState {}
+class UserInfomationSuccess extends UserInformationState {}
 
-class UserInfomationFailure extends UserInfomationState {
+class UserInfomationFailure extends UserInformationState {
   final String errorMessage;
   const UserInfomationFailure({required this.errorMessage});
   @override
   List<Object> get props => [errorMessage];
 }
 
-class PageChangedState extends UserInfomationState {
+class PageChangedState extends UserInformationState {
   final int index;
   const PageChangedState({this.index = 0});
   @override
   List<Object> get props => [index];
 }
 
-class ChooseLanguageState extends UserInfomationState {
+class ChooseLanguageState extends UserInformationState {
   final bool isChooseLanguage;
   const ChooseLanguageState({this.isChooseLanguage = false});
 }
 
-class ChooseLanguageSuccess extends UserInfomationState {}
+class ChooseLanguageSuccess extends UserInformationState {}
+
+class LanguageSelectionState extends UserInformationState {
+  final List<LanguageAndInterrestsModel> selectedLanguages;
+  const LanguageSelectionState({required this.selectedLanguages});
+}

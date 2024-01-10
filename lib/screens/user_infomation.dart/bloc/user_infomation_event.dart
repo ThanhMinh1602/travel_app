@@ -20,3 +20,17 @@ class ChooseLanguage extends UserInfomationEvent {
   @override
   List<Object> get props => [language];
 }
+
+class IsChooseLanguage extends UserInfomationEvent {
+  final bool isChooseLanguage;
+  const IsChooseLanguage({required this.isChooseLanguage});
+  @override
+  List<Object> get props => [isChooseLanguage];
+}
+
+class ToggleLanguageSelection extends UserInfomationEvent {
+  final String language;
+  const ToggleLanguageSelection({required this.language});
+  @override
+  List<Object> get props => [language];
+}

@@ -25,7 +25,7 @@ class _EntersInformationState extends State<EntersInformation> {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<UserInfomationBloc>(context);
-    return BlocBuilder<UserInfomationBloc, UserInfomationState>(
+    return BlocBuilder<UserInfomationBloc, UserInformationState>(
       builder: (context, state) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
@@ -38,13 +38,13 @@ class _EntersInformationState extends State<EntersInformation> {
                   SizedBox(height: 34.0.h),
                   Expanded(
                     child: PageView(
-                      physics: const NeverScrollableScrollPhysics(),
+                      // physics: NeverScrollableScrollPhysics(),
                       controller: controller,
                       onPageChanged: (value) {
                         bloc.add(PageChanged(index: value));
                       },
                       children: [
-                        _chooseLanguage(),
+                        _chooseLanguage(bloc),
                         _yourInterests(),
                         _wonderful(),
                         _yourResponse(),
@@ -66,7 +66,7 @@ class _EntersInformationState extends State<EntersInformation> {
     );
   }
 
-  String _getAppBarTitle(UserInfomationState state) {
+  String _getAppBarTitle(UserInformationState state) {
     if (state is PageChangedState) {
       switch (state.index) {
         case 0:
@@ -82,7 +82,7 @@ class _EntersInformationState extends State<EntersInformation> {
     return 'Choose a Language';
   }
 
-  Widget _chooseLanguage() {
+  Widget _chooseLanguage(UserInfomationBloc bloc) {
     return Column(
       children: [
         SvgPicture.asset(Assets.icons.ionLanguageSvg, width: 50.0.w),
@@ -99,21 +99,21 @@ class _EntersInformationState extends State<EntersInformation> {
               mainAxisExtent: 30.0.h,
             ),
             itemBuilder: (context, index) {
-              return Container(
-                padding: const EdgeInsets.only(left: 8.0),
-                decoration: BoxDecoration(
-                  color: AppColor.blueBDBDBD,
-                  borderRadius: BorderRadius.circular(5.0.r),
-                ),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                        child: dataLanguages[index].checked
-                            ? SvgPicture.asset(Assets.icons.checkedIcSvg)
-                            : SvgPicture.asset(Assets.icons.uncheckdIcSvg)),
-                    const SizedBox(width: 12.0),
-                    Text(dataLanguages[index].title, style: AppStyle.light14)
-                  ],
+              return GestureDetector(
+                onTap: () {},
+                child: Container(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  decoration: BoxDecoration(
+                    color: AppColor.blueBDBDBD,
+                    borderRadius: BorderRadius.circular(5.0.r),
+                  ),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(Assets.icons.uncheckdIcSvg),
+                      const SizedBox(width: 12.0),
+                      Text(dataLanguages[index].title, style: AppStyle.light14)
+                    ],
+                  ),
                 ),
               );
             },
@@ -153,9 +153,7 @@ class _EntersInformationState extends State<EntersInformation> {
                 child: Row(
                   children: [
                     GestureDetector(
-                        child: dataLanguages[index].checked
-                            ? SvgPicture.asset(Assets.icons.checkedIcSvg)
-                            : SvgPicture.asset(Assets.icons.uncheckdIcSvg)),
+                        child: SvgPicture.asset(Assets.icons.uncheckdIcSvg)),
                     const SizedBox(width: 15.0),
                     Text(dataIntersets[index].title, style: AppStyle.light14)
                   ],
@@ -304,7 +302,7 @@ class _EntersInformationState extends State<EntersInformation> {
         ));
   }
 
-  Widget _buildBottomButton(UserInfomationState state) {
+  Widget _buildBottomButton(UserInformationState state) {
     if (state is PageChangedState) {
       if (state.index == 3) {
         return const Row(
