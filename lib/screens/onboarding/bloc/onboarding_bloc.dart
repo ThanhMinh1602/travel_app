@@ -13,7 +13,6 @@ class OnboardingBloc extends Bloc<OnboardingEvents, OnboardingStates> {
 
   Future<void> pageIndex(event, emit) async {
     final updatedPageIndex = event.pageIndex;
-
     emit(OnboardingStates(pageIndex: updatedPageIndex));
   }
 }

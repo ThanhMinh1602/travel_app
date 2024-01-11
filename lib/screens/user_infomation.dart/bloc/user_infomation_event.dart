@@ -14,23 +14,12 @@ class PageChanged extends UserInfomationEvent {
   List<Object> get props => [index];
 }
 
-class ChooseLanguage extends UserInfomationEvent {
-  final List<String> language;
-  const ChooseLanguage({required this.language});
+class SelectGenderEvent extends UserInfomationEvent {
+  final String gender;
+
+  const SelectGenderEvent({required this.gender});
   @override
-  List<Object> get props => [language];
+  List<Object> get props => [gender];
 }
 
-class IsChooseLanguage extends UserInfomationEvent {
-  final bool isChooseLanguage;
-  const IsChooseLanguage({required this.isChooseLanguage});
-  @override
-  List<Object> get props => [isChooseLanguage];
-}
-
-class ToggleLanguageSelection extends UserInfomationEvent {
-  final String language;
-  const ToggleLanguageSelection({required this.language});
-  @override
-  List<Object> get props => [language];
-}
+class ImagePickerEvent extends UserInfomationEvent {}

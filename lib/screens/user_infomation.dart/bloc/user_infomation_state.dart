@@ -9,10 +9,6 @@ abstract class UserInformationState extends Equatable {
 
 class UserInfomationInitial extends UserInformationState {}
 
-class UserInfomationLoading extends UserInformationState {}
-
-class UserInfomationSuccess extends UserInformationState {}
-
 class UserInfomationFailure extends UserInformationState {
   final String errorMessage;
   const UserInfomationFailure({required this.errorMessage});
@@ -27,14 +23,27 @@ class PageChangedState extends UserInformationState {
   List<Object> get props => [index];
 }
 
-class ChooseLanguageState extends UserInformationState {
-  final bool isChooseLanguage;
-  const ChooseLanguageState({this.isChooseLanguage = false});
+class SelectGenderState extends UserInformationState {
+  final String gender;
+
+  const SelectGenderState({required this.gender});
+  @override
+  List<Object> get props => [gender];
 }
 
-class ChooseLanguageSuccess extends UserInformationState {}
+class ImagePickerStateSuccess extends UserInformationState {
+  final String path;
 
-class LanguageSelectionState extends UserInformationState {
-  final List<LanguageAndInterrestsModel> selectedLanguages;
-  const LanguageSelectionState({required this.selectedLanguages});
+  const ImagePickerStateSuccess({required this.path});
+  @override
+  List<Object> get props => [path];
+}
+
+class ImagePickerStateFailure extends UserInformationState {
+  final String errorMessage;
+
+  const ImagePickerStateFailure({required this.errorMessage});
+
+  @override
+  List<Object> get props => [errorMessage];
 }

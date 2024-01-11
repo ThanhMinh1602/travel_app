@@ -7,22 +7,25 @@ class InputInformation extends StatelessWidget {
     Key? key,
     this.hintText,
     this.prefixIcon,
-    this.textContent,
     this.readOnly = false,
+    this.controller,
+    this.onChanged,
   }) : super(key: key);
 
   final String? hintText;
   final Widget? prefixIcon;
-  final String? textContent;
   final bool readOnly;
+  final TextEditingController? controller;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 30.0.h,
       child: TextFormField(
+        onChanged: onChanged,
         readOnly: readOnly,
-        controller: TextEditingController(text: textContent),
+        controller: controller,
         decoration: InputDecoration(
           border: const UnderlineInputBorder(
             borderSide:
